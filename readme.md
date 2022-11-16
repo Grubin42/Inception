@@ -26,7 +26,7 @@
 ## Etape 2 installation Alpine Linux
 
 >* Installation Alpine Linux [Lien EN](https://wiki.alpinelinux.org/wiki/Alpine_newbie_installation#Login_as_root), [Lien FR](https://doc.ataxya.net/books/alpine-linux/page/installation-dalpine-linux).
->* ATTENTION pour le clavier séléctioner ch-fr_mac.
+>* ATTENTION pour le clavier séléctioner ch-fr_mac si mac qwertz, sinon us pour l'école.
 
 ## Etape 3 installation environement 
 
@@ -41,7 +41,7 @@
 >    * apk update
 >    * apk add docker
 
-## Etape 4 
+## Etape 4 création des containers
 
 
 ## CMD utile
@@ -52,9 +52,36 @@
 >* apk update
 >* apk upgrade
 >* reboot
+>* ps (process)
+
+>### CMD Docker
+>* "docker ps" liste les containers sur la machine
+>   * "-a" liste TOUS les containers
+>* "docker pull" dl une image Docker (ex; docker pull alpine)
+>* "docker run" lance un container (ex: docker run alpine:latest) :latest = derniere version d'alpine
+>   * "-tid" d pour detach i pour interactiv
+>   * "--name" pour nommer le container
+>   * "-p" redirection de port (ex: docker run -tid **-p 8080:80** --name web nginx:latest)
+>   * "-v" pour créer un volume (ex: docker run -tid -p 8080:80 **-v /cheminDossierMachine:/cheminDossierDocker** --name web nginx:latest)
+>   * "--mount" pour localiser un volume créé par "docker volume" (ex: docker run -tid -p 8080:80 **--mount source="nom du volume",target=/cheminDossierDocker** --name web nginx:latest)
+>* "docker exec" pour ce connecter a un container (ex: docker exec -ti "name")
+>   * "-ti" pour titiwhy
+>* "docker inspect" liste les proprietés du container (ex: docker inspect web)
+>* "docker start" pour redémarer un container (ex: docker start web)
+>* "docker stop" pour arreter un container (ex: docker stop web)
+>* "docker rm -f" supprime un container (ex: docker rm -f web)
+>* "docker volume" pour gérer les volumes
+>   * "create" créer un volume
+>   * "inspect" detail les information du/des volumes
+>   * "ls" liste les volumes
+>   * "prune" supprime les volumes on utilisé
+>   * "rm" détruit un volume
+>* "docker image" liste les images Docker sur la machine
+
 
 ## Sources
 
 >* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 >* [Alpine](https://www.alpinelinux.org/downloads/)
 >* [Debian](https://www.debian.org/releases/buster/)
+>* [Docker](https://docs.docker.com/get-started/overview/)
