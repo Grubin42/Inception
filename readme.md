@@ -59,11 +59,11 @@
 >* ENV maVariable saValeur
 
 
->### Création du dockerfile nginx
+>### Création du container nginx
 
->### Création du dockerfile wordpress-php
+>### Création du container wordpress-php
 
->### Création du dockerfile mariaDB
+>### Création du container mariaDB
 
 ## Création d'un docker-compose.yml
 
