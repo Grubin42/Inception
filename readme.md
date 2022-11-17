@@ -30,16 +30,19 @@
 
 ## Etape 3 installation environement 
 
+> Une fois dans la VM
 >* apk update
 >* apk upgrade
 >* reboot
 >* Installation de Vim "apk add vim"
+>* Installation de git "apk add git"
 >* Installation de Docker [lien video](https://www.youtube.com/watch?v=6CVQ75nGVAY), [lien wiki](https://wiki.alpinelinux.org/wiki/Docker)
 >    * cd /etc/apk enter
 >    * vim repositoris
 >    * décommenter http://mirror.leasweb.com/alpine/v3.16/community.
 >    * apk update
->    * apk add docker
+>    * apk add docker docker-compose
+
 
 ## Etape 4 création des containers
 
@@ -55,13 +58,29 @@
 >* COPY pour les scripts
 >* ENV maVariable saValeur
 
->### Création d'un script bash
 
->### Création d'un dockerfile nginx
+>### Création du dockerfile nginx
 
->### Création d'un dockerfile wordpress-php
+>### Création du dockerfile wordpress-php
 
->### Création d'un dockerfile mariaDB
+>### Création du dockerfile mariaDB
+
+## Création d'un docker-compose.yml
+
+>![ex .yml](/img_readme/1_TeBgetHlGCePc9Nq0__AtQ.png)
+>
+>[doc docker-compose.yml](https://docs.docker.com/compose/compose-file/)
+
+## Création d'un script bash
+
+>Ici nous avons besoin d'un script pour......
+> 
+>[doc script bash ubuntu](https://doc.ubuntu-fr.org/tutoriel/script_shell)
+>
+>[doc script bash freeCodeCamp](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/)
+>
+>[Bash scripting cheatsheet](https://devhints.io/bash)
+
 
 ## CMD utile
 
@@ -80,19 +99,19 @@
 >   * "-a" liste TOUS les containers
 >* "docker pull" dl une image Docker (ex; docker pull alpine)
 >* "docker run" lance un container (ex: docker run alpine:latest) :latest = derniere version d'alpine
->   * "-tid" d pour detach i pour interactiv
+>   * "-tid" ??
 >   * "--name" pour nommer le container
 >   * "-p" redirection de port (ex: docker run -tid **-p 8080:80** --name web nginx:latest)
 >   * "-v" pour créer un volume (ex: docker run -tid -p 8080:80 **-v /cheminDossierMachine:/cheminDossierDocker** --name web nginx:latest)
->   * "--mount" pour localiser un volume créé par "docker volume" (ex: docker run -tid -p 8080:80 **--mount source="nom 
-du volume",target=/cheminDossierDocker** --name web nginx:latest)
->   * "--volumes-from NomDuContainer" pour indiquer un volumer situé dans un autre container
+>   * "--mount" pour localiser un volume créé par "docker volume" (ex: docker run -tid -p 8080:80 **--mount source="nom du volume",target=/cheminDossierDocker** --name web nginx:latest)
+>   * "--volumes-from NomDuContainerAutre" pour indiquer un volume situé dans un autre container
 >   * "--rm" supprime le container une fois executé
 >   * "--network" ??
 >   * "--link" crée un lien entre le container run et un autre container (ex: docker run -tid --name NomContainer **--link NomAutreContainer** NomImage(alpine:latest))
 >   * "--add-host" connect au reseau ce qu'on veut (docker run -tid --name NomContainer **--add-host NomHost:122.0.25.3** NomImage)
 >* "docker exec" pour ce connecter a un container (ex: docker exec -ti sh)
 >   * "-ti" pour titiwhy
+>   * "sh" pour utiliser bash dans le container
 >* "docker inspect" liste les proprietés du container (ex: docker inspect web)
 >* "docker start" pour redémarer un container (ex: docker start web)
 >* "docker stop" pour arreter un container (ex: docker stop web)
@@ -101,16 +120,17 @@ du volume",target=/cheminDossierDocker** --name web nginx:latest)
 >   * "create" créer un volume
 >   * "inspect" detail les information du/des volumes
 >   * "ls" liste les volumes
->   * "prune" supprime les volumes on utilisé
+>   * "prune" supprime les volumes non utilisé
 >   * "rm" détruit un volume
 >* "docker image" liste les images Docker sur la machine
 >* "docker build -t NomImage:version ." execute l'image **ATTENTION le point final est très important**
 >   * "--no-cache" supprime le cache du container
 >* "docker history NomImage:version" permet de voir les séquences joués lors de la création de l'image via le dockerfile
 >* "docker network"
->   * "ls"
->   * "create"
->   * "--subnet"
+>   * "ls" pour afficher les reseaux
+>   * "create" créer un reseau
+>   * "-d" ??
+>   * "--subnet" ??
 
 ## Sources
 
