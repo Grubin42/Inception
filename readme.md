@@ -22,7 +22,7 @@
 >   * Aller dans "display" -> Scale Factor -> max (300%)
 >   * Aller dans "Stockage" onglet "Unités de stockage" cliquer sur le symbole "rond bleu" en dessous de "Contrôleur: IDE". Dans l'onglet "Attributs" cliquer sur le symbole "rond bleu" et séléctionner l'Os précédement télécharger.
 >   * cliquer sur OK.
->   * Pour autoriser le transfert de fichier entre la vm et la machine hote
+>   * Pour autoriser le transfert de fichier entre la vm et la machine hote (A FAIRE A CHAQUE FOIS QUE VOUS RE-STARTER LA VM)
 >       * settings -> shared folders -> cliquer petit + vert sur dessin dossier
 >           Selectionne folder path -> choisir le dossier de la machine hote (ex: document/inception)
 >       * Cocher -> auto mount
@@ -59,7 +59,7 @@
 >* Installer curl -> sudo apt-get install -y curl 
 >* Installer make -> sudo apt-get install -y make 
 >* Installer docker -> sudo apt-get install -y docker.io 
->* Installer docker-compose -> sudo curl -L "https://github.com/docker/compose/releases download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+>* Installer docker-compose -> sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 >* Accorder l'autorisation d'exécuter docker compose -> sudo chmod +x /usr/local/bin/docker-compose
 >* Lier le dossier machine hote a la vm 
 >   * cree un dossier -> mkdir test
