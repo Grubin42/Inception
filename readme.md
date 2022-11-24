@@ -63,7 +63,7 @@
 >* Accorder l'autorisation d'exécuter docker compose -> sudo chmod +x /usr/local/bin/docker-compose
 >* Lier le dossier machine hote a la vm 
 >   * cree un dossier -> mkdir test
->   * sudo mount -t vboxsf Inception test
+>   * sudo mount -t vboxsf Inception test (A faire dans le dossier Bureau de la VM)
 
 ## Etape 4 création des containers
 
