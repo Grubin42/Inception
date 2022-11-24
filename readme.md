@@ -7,42 +7,63 @@
 ## Etape 1 installation VM
 
 >* Installer une VM via [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
->* Télécharger [Alpine](https://www.alpinelinux.org/downloads/) ou [Debian](https://www.debian.org/releases/buster/).
+>* Télécharger [Debian](https://www.debian.org/releases/buster/).
 >* Configurer la VM.
 >   * Dans VirtualBox cliquer sur "nouvelle"
 >   * Nommer la VM
+>   * Choisir un dossier pour la machine (ex: goinfre || sgoinfre)
 >   * Séléctionner le type "Linux"
->   * Choisir la version "Linux 2.6/3.x/4.x/5.x(64-bit".
->   * Cliquer sur suivant.
+>   * Choisir la version "Debian (64-bit)".
+>   * Cliquer sur continue.
 >   * Séléctionner 4096 de MB
->   * Cliquer sur suivant jusqu'a finish.
->   * Cliquer sur "Configurer".
->   * Aller dans "Système" et l'onglet "Carte Mère", dans ordre d'amorçage mettez "disque dur" en tête de liste. Dans l'onglet "Processeur" séléctionner 2 coeurs.
->   * Aller dans "Affichage" onglet "écran", mettre "Mémoire Vidéo" a 128 MB et mettre le "Controlleur graphique" sur "VBoxVGA"
+>   * Cliquer sur suivant jusqu'a definir la quantite de memoire allouee (min 30gb).
+>   * Cliquer sur "Create".
+>   * Cliquer sur "Settings".
+>   * Aller dans "display" -> Scale Factor -> max (300%)
 >   * Aller dans "Stockage" onglet "Unités de stockage" cliquer sur le symbole "rond bleu" en dessous de "Contrôleur: IDE". Dans l'onglet "Attributs" cliquer sur le symbole "rond bleu" et séléctionner l'Os précédement télécharger.
 >   * cliquer sur OK.
+>   * Pour autoriser le transfert de fichier entre la vm et la machine hote
+>       * settings -> shared folders -> cliquer petit + vert sur dessin dossier
+>           Selectionne folder path -> choisir le dossier de la machine hote (ex: document/inception)
+>       * Cocher -> auto mount
+>       * pour lier le dossier selectionner de la machine hote a sa VM, il faut aller dans celle ci et cree un dossier vide qui acceuillera les fichiers du dossier selection -> sudo mount -t vboxsf nomDossierMachineHote nomDossierVM
 >* Démmarer la VM.
 
-## Etape 2 installation Alpine Linux
+## Etape 2 installation Debian
 
->* Installation Alpine Linux [Lien EN](https://wiki.alpinelinux.org/wiki/Alpine_newbie_installation#Login_as_root), [Lien FR](https://doc.ataxya.net/books/alpine-linux/page/installation-dalpine-linux).
->* ATTENTION pour le clavier séléctioner ch-fr_mac si mac qwertz, sinon us pour l'école.
+>* Selectionne "Install"
+>* Selectionne la langue -> french, le pays -> suisse, le clavier -> depend de votre clavier
+>* Nom de la machine -> laisser comme c'est
+>* Domaine -> laisser comme c'est
+>* MDP root -> au choix
+>* new user -> au choix
+>* identifiant user -> au choix
+>* MDP user -> au choix
+>* Mode de partition -> disque entier
+>* Schema de partition -> partion /home, /var et /tmp separees
+>* Terminer
+>* Appliquer les changements sur les disques -> oui
+>* Faut il analyser d'autre supports d'installation -> non
+>* Pays du miroir de l'archive -> suisse
+>* Miroir de l'archive -> deb.debian.org
+>* mandataire HTTP -> vide
+>* Participation a l'etude -> non
+>* Logiciel a installer -> server ssh
+>* installer le programme GRUB -> oui
+>* Peripherique /dev/sda
 
 ## Etape 3 installation environement 
 
 > Une fois dans la VM
->* apk update
->* apk upgrade
->* reboot
->* Installation de Vim "apk add vim"
->* Installation de git "apk add git"
->* Installation de Docker [lien video](https://www.youtube.com/watch?v=6CVQ75nGVAY), [lien wiki](https://wiki.alpinelinux.org/wiki/Docker)
->    * cd /etc/apk enter
->    * vim repositoris
->    * décommenter http://mirror.leasweb.com/alpine/v3.16/community.
->    * apk update
->    * apk add docker docker-compose
-
+>* passer en mode root -> su dans le terminal
+>* Installer curl -> sudo apt-get install -y curl 
+>* Installer make -> sudo apt-get install -y make 
+>* Installer docker -> sudo apt-get install -y docker.io 
+>* Installer docker-compose -> sudo curl -L "https://github.com/docker/compose/releases download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+>* Accorder l'autorisation d'exécuter docker compose -> sudo chmod +x /usr/local/bin/docker-compose
+>* Lier le dossier machine hote a la vm 
+>   * cree un dossier -> mkdir test
+>   * sudo mount -t vboxsf Inception test
 
 ## Etape 4 création des containers
 
@@ -60,10 +81,16 @@
 
 
 >### Création du container nginx
+>#### Dockerfile
+>#### Script
 
 >### Création du container wordpress-php
+>#### Dockerfile
+>#### Script
 
 >### Création du container mariaDB
+>#### Dockerfile
+>#### Script
 
 ## Création d'un docker-compose.yml
 
@@ -138,3 +165,4 @@
 >* [Alpine](https://www.alpinelinux.org/downloads/)
 >* [Debian](https://www.debian.org/releases/buster/)
 >* [Docker](https://docs.docker.com/get-started/overview/)
+>* [Docker-compose tuto](https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/)
