@@ -65,7 +65,16 @@
 >   * cree un dossier -> mkdir test
 >   * sudo mount -t vboxsf Inception test (A faire dans le dossier Bureau de la VM)
 
-## Etape 4 création des containers
+## Etape 4 mise en place connexion SSH
+
+>* Aller dans Settings de VirtualBox -> Network -> Adapter 1 -> Advanced -> Port Forwarding
+>* Ajouter une nouvelle règle (icone + vert) ![ssh](/img_readme/Screen%20Shot%202022-11-25%20at%203.51.56%20PM.png)
+>* Dans la VM tapper en mode root "sudo systemctl restart ssh"
+>* Dans la VM tapper en mode root "sudo service sshd status"
+>* Dans la machine hote tapper "ssh your_username@127.0.0.1 -p 4242"
+>* (exit to disconnect)
+
+## Etape 5 création des containers
 
 >### CMD dockerfile
 >
