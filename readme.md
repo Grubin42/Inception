@@ -61,6 +61,7 @@
 >* Installer docker -> sudo apt-get install -y docker.io 
 >* Installer docker-compose -> sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 >* Accorder l'autorisation d'exécuter docker compose -> sudo chmod +x /usr/local/bin/docker-compose
+>* Verifier si bien installé -> sudo docker-compose version
 >* Lier le dossier machine hote a la vm 
 >   * cree un dossier -> mkdir test
 >   * sudo mount -t vboxsf Inception test (A faire dans le dossier Bureau de la VM)
@@ -71,23 +72,29 @@
 >* Ajouter une nouvelle règle (icone + vert) ![ssh](/img_readme/Screen%20Shot%202022-11-25%20at%203.51.56%20PM.png)
 >* Dans la VM tapper en mode root "sudo systemctl restart ssh"
 >* Dans la VM tapper en mode root "sudo service sshd status"
->* Dans la machine hote tapper "ssh your_username@127.0.0.1 -p 4242"
+>* Dans la machine hote tapper "ssh your_username@127.0.0.1 -p 2222"
 >* (exit to disconnect)
 
 ## Etape 5 création des containers
 
 >### CMD dockerfile
 >
->* FROM pour indiquer une image (ex: ubuntu:latest)
->* MAINTAINER pour indiquer celui qui à créé le dockerfile
->* LABEL maintainer="Nom"
->* RUN joue une séquence de run (ex: apk update && apk install -y vim git && apk clean etc....)
->   * "--no-cache" (ex: "apk --no-cache update" pour utiliser update a chaque fois que l'on builde une image)
->* VOLUME defini le chemin ou sera stocker les données (ex: /var/www/html pour le fichier html)
->* ENTRYPOINT pour gérer le premier process (ex: ["nginx", "-g", "daemon off;"])
->* COPY pour les scripts
->* ENV maVariable saValeur
-
+> [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+>* FROM Image parente
+>* MAINTAINER Image parente
+>* ARG Variables passées comme paramètres à la construction de l'image
+>* ENV Variable d'environnement
+>* LABEL Ajout de métadonnées
+>* VOLUME Crée un point de montage
+>* RUN Commande(s) utilisée(s) pour construire l'image
+>* ADD (Ajoute un fichier dans l'image *ADD vs COPY)
+>* COPY Ajoute un fichier dans l'image
+>* WORKDIR Permet de changer le chemin courant
+>* EXPOSE Port(s) écouté(s) par le conteneur
+>* USER Nom d'utilisateur ou UID à utiliser
+>* ONBUILD Instructions exécutées lors de la construction d'images enfants
+>* CMD Exécuter une commande au démarrage du conteneur
+>* ENTRYPOINT Exécuter une commande au démarrage du conteneur
 
 >### Création du container nginx
 >#### Dockerfile
