@@ -1,8 +1,8 @@
 version: '3.3'
 
 services:
-  db:
-    image: mariabd:latest
+  database:
+    image: mariadb:latest
     container_name: database
     restart: unless-stopped
     env_file: .env
@@ -17,7 +17,7 @@ services:
   wordpress:
     depends_on: 
       - database
-    image: wordpress:latest
+    image: wordpress:latest-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file: .env
@@ -34,7 +34,7 @@ services:
   webserver:
     depends_on:
       - wordpress
-    image: nginx:latest
+    image: nginx:latest-alpine
     container_name: webserver
     restart: unless-stopped
     ports:
