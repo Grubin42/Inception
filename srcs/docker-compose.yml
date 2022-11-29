@@ -6,9 +6,10 @@ services:
     build:
       context: ./requirements/mariadb
       dockerfile: mariadb
+    #image: mariadb:10.3
     container_name: db
     restart: unless-stopped
-    env_file:
+    nv_file:
       - .env
     environment:
       - MYSQL_DATABASE=wordpress
@@ -24,6 +25,7 @@ services:
     build: 
       context: ./requirements/wordpress
       dockerfile: wordpress
+    #image: wordpress:6.1.1-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file:
@@ -44,13 +46,15 @@ services:
     build:
       context: ./requirements/nginx
       dockerfile: nginx
+    #image: nginx:1.23.2-alpine
     container_name: nginx
     restart: unless-stopped
     ports:
       - 443:443
     volumes:
       - ~data/nginx:/var/www/html
-
+      - ./requirements/nginx/conf:/etc/nginx/conf.d
+  
 volumes:
   data:
 
