@@ -1,54 +1,58 @@
-version: '3.3'
+version: '3.9'
 
 services:
-  database:
-    image: mariadb:latest
-    container_name: database
+
+  db:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: mariadb
+    container_name: db
     restart: unless-stopped
-    env_file: .env
+    env_file:
+      - .env
     environment:
       - MYSQL_DATABASE=wordpress
-    volumes: 
-      - dbdata:/var/lib/mysql
+    volumes:
+      - ~data/mariadb:/var/lib/mariadb
     command: '--default-authentication-plugin=mysql_native_password'
     networks:
       - app-network
 
   wordpress:
-    depends_on: 
-      - database
-    image: wordpress:latest-fpm-alpine
+    depends_on:
+      - db
+    build: 
+      context: ./requirements/wordpress
+      dockerfile: wordpress
     container_name: wordpress
     restart: unless-stopped
-    env_file: .env
+    env_file:
+      - .env
     environment:
       - WORDPRESS_DB_HOST=db:3306
       - WORDPRESS_DB_USER=moi
       - WORDPRESS_DB_PASSWORD=1234
       - WORDPRESS_DB_NAME=wordpress
     volumes:
-      - wordpress:/var/www/html
+      - ~data/wordpress:/var/www/html
     networks:
       - app-network
 
-  webserver:
+  nginx:
     depends_on:
       - wordpress
-    image: nginx:latest-alpine
-    container_name: webserver
+    build:
+      context: ./requirements/nginx
+      dockerfile: nginx
+    container_name: nginx
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - 443:443
     volumes:
-      - wordpress:/var/www/html
-      - ./nginx-conf:/etc/nginx/conf.d
-    networks:
-      - app-network
+      - ~data/nginx:/var/www/html
 
 volumes:
-  wordpress:
-  dbdata:
+  data:
 
 networks:
   app-network:

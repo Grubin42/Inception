@@ -77,7 +77,22 @@
 
 ## Etape 5 création des containers
 
->### CMD dockerfile
+>### Création du container nginx
+>#### Dockerfile
+>#### Script
+>#### Config
+
+>### Création du container wordpress-php
+>#### Dockerfile
+>#### Script
+>#### Config
+
+>### Création du container mariaDB
+>#### Dockerfile
+>#### Script
+>#### Config
+
+>### DOC dockerfile
 >
 > [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 >* FROM Image parente
@@ -96,27 +111,14 @@
 >* CMD Exécuter une commande au démarrage du conteneur
 >* ENTRYPOINT Exécuter une commande au démarrage du conteneur
 
->### Création du container nginx
->#### Dockerfile
->#### Script
-
->### Création du container wordpress-php
->#### Dockerfile
->#### Script
-
->### Création du container mariaDB
->#### Dockerfile
->#### Script
-
-## Création d'un docker-compose.yml
-
->![ex .yml](/img_readme/1_TeBgetHlGCePc9Nq0__AtQ.png)
+>### DOC Création d'un docker-compose.yml
 >
 >[doc docker-compose.yml](https://docs.docker.com/compose/compose-file/)
+>
+>![ex .yml](/img_readme/1_TeBgetHlGCePc9Nq0__AtQ.png)
 
-## Création d'un script bash
-
->Ici nous avons besoin d'un script pour......
+>### DOC Création d'un script bash
+>
 > 
 >[doc script bash ubuntu](https://doc.ubuntu-fr.org/tutoriel/script_shell)
 >
