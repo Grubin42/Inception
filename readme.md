@@ -184,3 +184,4 @@
 >* [Debian](https://www.debian.org/releases/buster/)
 >* [Docker](https://docs.docker.com/get-started/overview/)
 >* [Docker-compose tuto](https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/)
+>* [Certif-ssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)

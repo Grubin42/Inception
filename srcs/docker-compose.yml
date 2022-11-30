@@ -3,29 +3,31 @@ version: '3.9'
 services:
 
   db:
-    build:
-      context: ./requirements/mariadb
-      dockerfile: mariadb
-    #image: mariadb:10.3
+    #build:
+      #context: ./requirements/mariadb
+      #dockerfile: mariadb
+    image: mariadb:10.3
     container_name: db
     restart: unless-stopped
-    nv_file:
+    env_file:
       - .env
     environment:
       - MYSQL_DATABASE=wordpress
+      - MARIADB_ROOT_PASSWORD=1234
     volumes:
-      - ~data/mariadb:/var/lib/mariadb
+      - ./home/mchalard/data/mariadb:/var/lib/mariadb
     command: '--default-authentication-plugin=mysql_native_password'
     networks:
       - app-network
 
   wordpress:
     depends_on:
-      - db
-    build: 
-      context: ./requirements/wordpress
-      dockerfile: wordpress
-    #image: wordpress:6.1.1-fpm-alpine
+      db:
+        condition: services_healthy
+    #build: 
+      #context: ./requirements/wordpress
+      #dockerfile: wordpress
+    image: wordpress:6.1.1-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file:
@@ -36,27 +38,33 @@ services:
       - WORDPRESS_DB_PASSWORD=1234
       - WORDPRESS_DB_NAME=wordpress
     volumes:
-      - ~data/wordpress:/var/www/html
+      - ./home/mchalard/data/wordpress:/var/www/html
     networks:
       - app-network
 
   nginx:
+    container_name: nginx
     depends_on:
-      - wordpress
+      wordpress:
+        condition: services_healthy
+    #image: nginx:1.23.2-alpine
     build:
       context: ./requirements/nginx
-      dockerfile: nginx
-    #image: nginx:1.23.2-alpine
-    container_name: nginx
-    restart: unless-stopped
+      dockerfile: Dockerfile
+    volumes:
+      - ./home/mchalard/data/nginx:/var/www/html
+      #- ./requirements/nginx/conf:/usr/share/nginx/html
+    networks:
+      - app-network
     ports:
       - 443:443
-    volumes:
-      - ~data/nginx:/var/www/html
-      - ./requirements/nginx/conf:/etc/nginx/conf.d
+    restart: unless-stopped
   
 volumes:
-  data:
+  mariadb:
+  wordpress:
+  nginx:
+  conf:
 
 networks:
   app-network:

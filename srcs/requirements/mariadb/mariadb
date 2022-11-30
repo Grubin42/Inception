@@ -2,7 +2,7 @@ FROM alpine:3.14
 
 RUN apk install && \
     apk update \
-    apk upgrade --nocache 
+    apk upgrade --no-cache 
 
 #ADD
 
