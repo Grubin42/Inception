@@ -3,13 +3,13 @@ version: '3.9'
 services:
 
   db:
-    build:
-      context: ./requirements/mariadb
-      dockerfile: mariadb
-    #image: mariadb:10.3
+    #build:
+      #context: ./requirements/mariadb
+      #dockerfile: mariadb
+    image: mariadb:10.3
     container_name: db
     restart: unless-stopped
-    nv_file:
+    env_file:
       - .env
     environment:
       - MYSQL_DATABASE=wordpress
@@ -22,10 +22,10 @@ services:
   wordpress:
     depends_on:
       - db
-    build: 
-      context: ./requirements/wordpress
-      dockerfile: wordpress
-    #image: wordpress:6.1.1-fpm-alpine
+    #build: 
+      #context: ./requirements/wordpress
+      #dockerfile: wordpress
+    image: wordpress:6.1.1-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file:
@@ -43,10 +43,10 @@ services:
   nginx:
     depends_on:
       - wordpress
-    build:
-      context: ./requirements/nginx
-      dockerfile: nginx
-    #image: nginx:1.23.2-alpine
+    #build:
+      #context: ./requirements/nginx
+      #dockerfile: nginx
+    image: nginx:1.23.2-alpine
     container_name: nginx
     restart: unless-stopped
     ports:
