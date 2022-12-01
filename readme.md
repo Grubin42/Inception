@@ -59,7 +59,7 @@
 >* Installer curl -> sudo apt-get install -y curl 
 >* Installer make -> sudo apt-get install -y make 
 >* Installer docker -> sudo apt-get install -y docker.io 
->* Installer docker-compose -> sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+>* Installer docker-compose -> sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-\$(uname -s)-\$(uname -m)" -o /usr/local/bin/docker-compose
 >* Accorder l'autorisation d'exécuter docker compose -> sudo chmod +x /usr/local/bin/docker-compose
 >* Verifier si bien installé -> sudo docker-compose version
 >* Lier le dossier machine hote a la vm 
@@ -138,6 +138,11 @@
 >* "ps" affiche les process en cour
 >* "tree" affiche l'arborésence du dossier courant (à dl via brew)
 >* "cat /etc/hosts" affiche le fichier etc/hosts
+
+>* ### CMD docker-compose
+>
+>* "docker-compose up -d" pour lancer la creation des container via le fichier .yml
+>*  
 
 >### CMD Docker utile
 >* "docker ps" liste les containers sur la machine
