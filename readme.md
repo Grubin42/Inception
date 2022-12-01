@@ -75,10 +75,18 @@
 >* Dans la machine hote tapper "ssh your_username@127.0.0.1 -p 2222"
 >* (exit to disconnect)
 
+## Etape 4.5 Snapshot
+
+> !IMPORTANT Faire un snapshot
+> Deconnecte la VM et appuie sur "take" dans le tableau de bord de VirtualBox
+> ![take](/img_readme/Screen%20Shot%202022-12-01%20at%203.50.27%20PM.png)
+
 ## Etape 5 création des containers
 
 >### Création du container nginx
 >#### Dockerfile
+>* [install nginx](https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/)
+>* [create openssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
 >#### Script
 >#### Config
 
