@@ -13,8 +13,9 @@ services:
       - .env
     environment:
       - MYSQL_DATABASE=wordpress
+      - MARIADB_ROOT_PASSWORD=1234
     volumes:
-      - ~data/mariadb:/var/lib/mariadb
+      - ./home/mchalard/data/mariadb:/var/lib/mariadb
     command: '--default-authentication-plugin=mysql_native_password'
     networks:
       - app-network
@@ -36,27 +37,26 @@ services:
       - WORDPRESS_DB_PASSWORD=1234
       - WORDPRESS_DB_NAME=wordpress
     volumes:
-      - ~data/wordpress:/var/www/html
+      - ./home/mchalard/data/wordpress:/var/www/html
     networks:
       - app-network
 
   nginx:
+    container_name: nginx
     depends_on:
       - wordpress
     #build:
       #context: ./requirements/nginx
       #dockerfile: nginx
     image: nginx:1.23.2-alpine
-    container_name: nginx
     restart: unless-stopped
     ports:
       - 443:443
-    volumes:
-      - ~data/nginx:/var/www/html
-      - ./requirements/nginx/conf:/etc/nginx/conf.d
   
 volumes:
-  data:
+  mariadb:
+  wordpress:
+  nginx:
 
 networks:
   app-network:
