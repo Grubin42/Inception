@@ -80,29 +80,33 @@
 > !IMPORTANT Faire un snapshot
 >
 > Deconnecte la VM et appuie sur "take" dans le tableau de bord de VirtualBox
-> ![take](/img_readme/Screen%20Shot%202022-12-01%20at%203.50.27%20PM.png)
+> ![Take](/img_readme/Screen%20Shot%202022-12-01%20at%203.50.27%20PM.png)
 
 ## Etape 5 création des containers
 
 >### Création du container nginx
 >#### Dockerfile
->* [install nginx](https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/)
 >* [Nginx](https://wiki.alpinelinux.org/wiki/Nginx)
->* [create openssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
+>* [Create openssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
 >#### Script
 >#### Config
+>* [Nginx config](https://grafikart.fr/tutoriels/nginx-692)
+>* [Nginx config](https://www.digitalocean.com/community/tools/nginx?global.app.lang=fr)
 
 >### Création du container wordpress-php
 >#### Dockerfile
 >* [Wordpress](https://wiki.alpinelinux.org/wiki/WordPress)
 >#### Script
 >#### Config
+>* [Wordpress config](https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/)
 
 >### Création du container mariaDB
 >#### Dockerfile
 >* [Mariadb](https://wiki.alpinelinux.org/wiki/MariaDB)
 >#### Script
 >#### Config
+>* [Create db](https://www.guru99.com/mariadb-tutorial-install.html)
+>* [Create user](https://phoenixnap.com/kb/how-to-create-mariadb-user-grant-privileges)
 
 ## Etape 6 création du Makefile
 
@@ -130,18 +134,18 @@
 
 >### DOC Création d'un docker-compose.yml
 >
->[doc docker-compose.yml](https://docs.docker.com/compose/compose-file/)
+>[Doc docker-compose.yml](https://docs.docker.com/compose/compose-file/)
 >
 >[Volume info](https://stackoverflow.com/questions/36387032/how-to-set-a-path-on-host-for-a-named-volume-in-docker-compose-yml)
 >
->![ex .yml](/img_readme/1_TeBgetHlGCePc9Nq0__AtQ.png)
+>![Ex .yml](/img_readme/1_TeBgetHlGCePc9Nq0__AtQ.png)
 
 >### DOC Création d'un script bash
 >
 > 
->[doc script bash ubuntu](https://doc.ubuntu-fr.org/tutoriel/script_shell)
+>[Doc script bash ubuntu](https://doc.ubuntu-fr.org/tutoriel/script_shell)
 >
->[doc script bash freeCodeCamp](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/)
+>[Doc script bash freeCodeCamp](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/)
 >
 >[Bash scripting cheatsheet](https://devhints.io/bash)
 
