@@ -78,6 +78,7 @@
 ## Etape 4.5 Snapshot
 
 > !IMPORTANT Faire un snapshot
+>
 > Deconnecte la VM et appuie sur "take" dans le tableau de bord de VirtualBox
 > ![take](/img_readme/Screen%20Shot%202022-12-01%20at%203.50.27%20PM.png)
 
@@ -86,19 +87,27 @@
 >### Création du container nginx
 >#### Dockerfile
 >* [install nginx](https://www.cyberciti.biz/faq/how-to-install-nginx-web-server-on-alpine-linux/)
+>* [Nginx](https://wiki.alpinelinux.org/wiki/Nginx)
 >* [create openssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
 >#### Script
 >#### Config
 
 >### Création du container wordpress-php
 >#### Dockerfile
+>* [Wordpress](https://wiki.alpinelinux.org/wiki/WordPress)
 >#### Script
 >#### Config
 
 >### Création du container mariaDB
 >#### Dockerfile
+>* [Mariadb](https://wiki.alpinelinux.org/wiki/MariaDB)
 >#### Script
 >#### Config
+
+## Etape 6 création du Makefile
+
+>* [Makefile info](http://www.inanzzz.com/index.php/post/wqfy/a-makefile-example-with-docker-compose-commands)
+>* [Makefile info](https://itnext.io/docker-makefile-x-ops-sharing-infra-as-code-parts-ea6fa0d22946)
 
 >### DOC dockerfile
 >
@@ -122,6 +131,8 @@
 >### DOC Création d'un docker-compose.yml
 >
 >[doc docker-compose.yml](https://docs.docker.com/compose/compose-file/)
+>
+>[Volume info](https://stackoverflow.com/questions/36387032/how-to-set-a-path-on-host-for-a-named-volume-in-docker-compose-yml)
 >
 >![ex .yml](/img_readme/1_TeBgetHlGCePc9Nq0__AtQ.png)
 
@@ -147,7 +158,7 @@
 >* "tree" affiche l'arborésence du dossier courant (à dl via brew)
 >* "cat /etc/hosts" affiche le fichier etc/hosts
 
->* ### CMD docker-compose
+> ### CMD docker-compose
 >
 >* "docker-compose up -d" pour lancer la creation des container via le fichier .yml
 >*  
@@ -198,3 +209,6 @@
 >* [Docker](https://docs.docker.com/get-started/overview/)
 >* [Docker-compose tuto](https://linuxiac.com/how-to-set-up-lemp-stack-with-docker-compose/)
 >* [Certif-ssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
+>* [Nginx](https://wiki.alpinelinux.org/wiki/Nginx)
+>* [Wordpress](https://wiki.alpinelinux.org/wiki/WordPress)
+>* [Mariadb](https://wiki.alpinelinux.org/wiki/MariaDB)

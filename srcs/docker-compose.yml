@@ -2,66 +2,77 @@ version: '3.9'
 
 services:
 
-  #db:
-    #build:
-      #context: ./requirements/mariadb
-      #dockerfile: mariadb
-    #image: mariadb:10.3
-    #container_name: db
-    #restart: unless-stopped
-    #env_file:
-      #- .env
-    #environment:
-      #- MYSQL_DATABASE=wordpress
-      #- MARIADB_ROOT_PASSWORD=1234
-    #volumes:
-      #- /home/grubin/data/mariadb:/var/lib/mariadb
-    #command: '--default-authentication-plugin=mysql_native_password'
-    #networks:
-      #- app-network
+  db:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: mariadb
+    image: mariadb
+    container_name: db
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - MYSQL_DATABASE=wordpress
+      - MARIADB_ROOT_PASSWORD=1234
+    volumes:
+      - mariadb:/var/lib/mariadb
+    command: '--default-authentication-plugin=mysql_native_password'
+    networks:
+      - app-network
 
-  #wordpress:
-    #depends_on:
-      #- db
-    #build: 
-      #context: ./requirements/wordpress
-      #dockerfile: wordpress
-    #image: wordpress:6.1.1-fpm-alpine
-    #container_name: wordpress
-    #restart: unless-stopped
-    #env_file:
-      #- .env
-    #environment:
-      #- WORDPRESS_DB_HOST=db:3306
-      #- WORDPRESS_DB_USER=moi
-      #- WORDPRESS_DB_PASSWORD=1234
-      #- WORDPRESS_DB_NAME=wordpress
-    #volumes:
-      #- /home/grubin/data/wordpress:/var/www/html
-    #networks:
-      #- app-network
+  wordpress:
+    depends_on:
+      db:
+        condition: service_healthy
+    build: 
+      context: ./requirements/wordpress
+      dockerfile: wordpress
+    image: wordpress
+    container_name: wordpress
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_USER=moi
+      - WORDPRESS_DB_PASSWORD=1234
+      - WORDPRESS_DB_NAME=wordpress
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - app-network
 
   nginx:
     container_name: nginx
-    #depends_on:
-      #- wordpress
-    #build:
-      #context: ./requirements/nginx
-      #dockerfile: nginx
-    image: nginx:1.23.2-alpine
+    depends_on:
+      wordpress:
+        condition: service_healthy
+    build:
+      context: ./requirements/nginx
+      dockerfile: nginx
+    image: nginx
     restart: unless-stopped
     ports:
       - 443:443
     volumes:
-      - /home/grubin/data/nginx:/var/www/html
-    #networks:
-      #- app-network
+      - wordpress:/var/www/html
+    networks:
+      - app-network
   
 volumes:
-  #mariadb:
-  #wordpress:
-  nginx:
+  mariadb:
+    driver: local
+    driver_opts:
+      type: 'volumes'
+      o: 'bind'
+      device: '/home/grubin/data/mariadb'
+  wordpress:
+    driver: local
+    driver_opts:
+      type: 'volumes'
+      o: 'bind'
+      device: '/home/grubin/data/wordpress'
 
-#networks:
-  #app-network:
-    #driver: bridge
+networks:
+  app-network:
+    driver: bridge
