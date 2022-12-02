@@ -108,11 +108,6 @@
 >* [Create db](https://www.guru99.com/mariadb-tutorial-install.html)
 >* [Create user](https://phoenixnap.com/kb/how-to-create-mariadb-user-grant-privileges)
 
-## Etape 6 création du Makefile
-
->* [Makefile info](http://www.inanzzz.com/index.php/post/wqfy/a-makefile-example-with-docker-compose-commands)
->* [Makefile info](https://itnext.io/docker-makefile-x-ops-sharing-infra-as-code-parts-ea6fa0d22946)
-
 >### DOC dockerfile
 >
 > [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
@@ -149,6 +144,10 @@
 >
 >[Bash scripting cheatsheet](https://devhints.io/bash)
 
+## Etape 6 création du Makefile
+
+>* [Makefile info](http://www.inanzzz.com/index.php/post/wqfy/a-makefile-example-with-docker-compose-commands)
+>* [Makefile info](https://itnext.io/docker-makefile-x-ops-sharing-infra-as-code-parts-ea6fa0d22946)
 
 ## CMD utile
 
