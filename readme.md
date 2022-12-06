@@ -107,6 +107,9 @@
 >#### Config
 >* [Create db](https://www.guru99.com/mariadb-tutorial-install.html)
 >* [Create user](https://phoenixnap.com/kb/how-to-create-mariadb-user-grant-privileges)
+>* [Info .cnf](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/)
+>* [Info .cnf](https://gist.github.com/fevangelou/fb72f36bbe333e059b66)
+>* [Info .cnf](https://exampleconfig.com/view/mariadb-ubuntu18-04-etc-mysql-mariadb-conf-d-50-server-cnf)
 
 >### DOC dockerfile
 >
@@ -137,7 +140,6 @@
 
 >### DOC Création d'un script bash
 >
-> 
 >[Doc script bash ubuntu](https://doc.ubuntu-fr.org/tutoriel/script_shell)
 >
 >[Doc script bash freeCodeCamp](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/)
