@@ -1,0 +1,35 @@
+<?php
+//configuration minimum de wordpress
+
+define('WP_CACHE', true);
+
+//Database
+define( 'DB_NAME', getenv('MARIADB_DB') );
+
+//Database MySQL username
+define( 'DB_USER', getenv('MARIADB_USER') );
+
+//MySQL database password
+define( 'DB_PASSWORD', getenv('MARIADB_PWD') );
+
+//MySQL hostname
+define( 'DB_HOST', getenv('MARIADB_HOST'));
+
+//Database charset to use in creating database tables.
+define( 'DB_CHARSET', 'utf8' );
+
+//The database collate type. Don't change this if in doubt.
+define( 'DB_COLLATE', '' );
+
+//Prefix des tables de la BD
+$table_prefix = 'wp_';
+
+//permet fonctionnalites de debug
+define( 'WP_DEBUG', false);
+
+//permet de rooter/afficher index.php
+if ( ! defined( 'ABSPATH' ) ) {
+        define( 'ABSPATH', __DIR__ . '/' );
+}
+
+require_once ABSPATH . 'wp-settings.php';

@@ -96,6 +96,9 @@
 >### Création du container wordpress-php
 >#### Dockerfile
 >* [Wordpress](https://wiki.alpinelinux.org/wiki/WordPress)
+>* [Wget](https://doc.ubuntu-fr.org/wget)
+>* [Wp.cli](https://wp-cli.org/fr/)
+>* [Wp core download](https://developer.wordpress.org/cli/commands/core/download/)
 >#### Script
 >#### Config
 >* [Wordpress config](https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/)
@@ -110,6 +113,7 @@
 >* [Info .cnf](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/)
 >* [Info .cnf](https://gist.github.com/fevangelou/fb72f36bbe333e059b66)
 >* [Info .cnf](https://exampleconfig.com/view/mariadb-ubuntu18-04-etc-mysql-mariadb-conf-d-50-server-cnf)
+>* [Info .cnf](https://gist.github.com/Ishotihadus/1cdce4509819cabda983055dc25af26d)
 
 >### DOC dockerfile
 >
@@ -217,3 +221,5 @@
 >* [Nginx](https://wiki.alpinelinux.org/wiki/Nginx)
 >* [Wordpress](https://wiki.alpinelinux.org/wiki/WordPress)
 >* [Mariadb](https://wiki.alpinelinux.org/wiki/MariaDB)
+>* [Curl](https://www.hostinger.fr/tutoriels/comment-utiliser-la-commande-curl-sous-linux)
+>* [Wp.cli](https://wp-cli.org/fr/)
