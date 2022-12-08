@@ -10,7 +10,7 @@ RUN			apk add --no-cache --quiet --update php7 \
 												php-mysqli \
 												php-iconv
 
-RUN     	apk add wget bash tar --no-cache
+RUN     	apk add wget tar --no-cache
 
 RUN     	wget -P /var/www/ https://wordpress.org/latest.tar.gz
 
