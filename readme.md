@@ -88,7 +88,6 @@
 >#### Dockerfile
 >* [Nginx](https://wiki.alpinelinux.org/wiki/Nginx)
 >* [Create openssl](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
->#### Script
 >#### Config
 >* [Nginx config](https://grafikart.fr/tutoriels/nginx-692)
 >* [Nginx config](https://www.digitalocean.com/community/tools/nginx?global.app.lang=fr)
@@ -100,6 +99,7 @@
 >* [Wp.cli](https://wp-cli.org/fr/)
 >* [Wp core download](https://developer.wordpress.org/cli/commands/core/download/)
 >#### Script
+> Ici il faut écrire un script bash pour mettre en place le site internet (amuse toi bien^^)
 >#### Config
 >* [Wordpress config](https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/)
 >* [Info wordpress config](https://github.com/WordPress/WordPress/blob/master/wp-config-sample.php)
@@ -109,6 +109,7 @@
 >#### Dockerfile
 >* [Mariadb](https://wiki.alpinelinux.org/wiki/MariaDB)
 >#### Script
+> Ici il faudra créer un script bash pour lancer les CMDs SQL afin de créer la BDD et si possible éviter de la recréer a chaque fois que l'on relance un container.
 >#### Config
 >* [Create db](https://www.guru99.com/mariadb-tutorial-install.html)
 >* [Create user](https://phoenixnap.com/kb/how-to-create-mariadb-user-grant-privileges)

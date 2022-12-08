@@ -43,7 +43,6 @@ services:
       - mariadb-volume:/var/lib/mysql
     networks:
       - inception-network
-    #Variable interpolation
     environment:
       - MARIADB_ROOT_PWD=${MARIADB_ROOT_PWD}
       - MARIADB_DB=${MARIADB_DB}
