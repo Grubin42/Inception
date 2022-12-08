@@ -102,6 +102,8 @@
 >#### Script
 >#### Config
 >* [Wordpress config](https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/)
+>* [Info wordpress config](https://github.com/WordPress/WordPress/blob/master/wp-config-sample.php)
+>* [Info wordpress config](https://fr.wordpress.org/support/article/editing-wp-config-php/)
 
 >### Création du container mariaDB
 >#### Dockerfile
